@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Walmart's Items</title>
+        <link rel="stylesheet" href="/styles.css" />
+        <link rel="icon" href="/image/item-logo.png" type="image/png" />
+    </head>
+<body>
+    <%- include('../navbar') %>
+    <div class="items-body">
+        <div class="items-header">
+            <p>All Items</p>
+            <a href="/items/create" class="button-link">Create New Item</a>
+        </div>
+        <div class="items-container">
+            <% if (items) {%> <% items.forEach(item => { %> <%-
+                include('../partials/itemCard', {item}) %> <% }); %> <% } %>        
+        </div>
+    </div>
+</body>
+</html>

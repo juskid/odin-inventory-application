@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Item Page</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/images/walmart-logo.png" type="image/png" />
+</head>
+<body>
+    <%- include('../navbar') %>
+    <div class="form-body">
+      <div class="form-container">
+        <form method="POST" action="/items/update/<%=item.id%>" class="item-form">
+          <h2 class="form-title">Update Item</h2>
+          <%- include("../partials/errors.ejs") %>
+          <label for="name" class="form-label">Name: </label><br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            maxlength="20"
+            value="<%= item.name %>"
+            required
+            class="form-input"
+          /><br />
+  
+          <label for="types" class="form-label">Types: </label><br />
+          <select id="types" name="types" multiple required class="form-input">
+            <% if (types) { %> <% types.forEach(type => { %>
+              <option value="<%= type.type %>" <%= item.types.includes(type.type) ? 'selected' : '' %>>
+                  <%= type.type %>
+                </option>
+            <% }); %> <% } %></select
+          ><br />
+  
+          <label for="company" class="form-label">Company: </label><br />
+          <input
+            type="text"
+            id="company"
+            name="company"
+            maxlength="20"
+            value="<%= item.company %>"
+            required
+            class="form-input"
+          /><br />
+  
+          <label for="quantity" class="form-label">Quantity: </label><br />
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="0"
+            value="<%= item.quantity %>"
+            required
+            class="form-input"
+          /><br />
+  
+          <label for="price" class="form-label">Price: </label><br />
+          <input
+            type="number"
+            id="price"
+            name="price"
+            step="any"
+            min="0"
+            value="<%= item.price %>"
+            required
+            class="form-input"
+          /><br />
+  
+          <label for="image_url" class="form-label">Image Url: </label><br />
+          <input
+            type="text"
+            id="image_url"
+            name="image_url"
+            value="<%= item.image_url %>"
+            required
+            class="form-input"
+          /><br />
+  
+          <input type="submit" value="Update" class="form-submit"/>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Walmart</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/images/walmart-logo.png" type="image/png" />
+  </head>
+  <body>
+    <%- include('../navbar') %>
+    <div class="type-form-body">
+      <div class="form-container">
+        <form method="POST" action="/types/create" class="item-form">
+          <h2 class="form-title">New Type</h2>
+          <%- include("../partials/errors.ejs") %>
+          <label for="type" class="form-label">Type: </label><br />
+          <input
+            type="text"
+            id="type"
+            name="type"
+            minlength="1"
+            maxlength="20"
+            required
+            class="form-input"
+          /><br />
+          <input type="submit" value="Submit" class="form-submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

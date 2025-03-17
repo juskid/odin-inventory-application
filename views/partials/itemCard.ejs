@@ -1,0 +1,21 @@
+<a href="/items/<%= item.id %>" class="card-item-link">
+    <div class="item-card">
+        <div class="image-container">
+            <img
+                src="<%= item.image_url %>"
+                alt="<%= item.name %>"
+                class="item-image"
+            />
+        </div>
+        <h3 class="item-title"><%= item.name %></h3>
+        <p class="item-label">Type(s):</p>
+        <ul class="item-types">
+            <% if (item.types) { %> <% item.types.forEach(type => { %>
+            <li class="item-type-item"><%= type %></li>
+            <% }); %> <% } %>
+        </ul>
+        <p class="item-info"><%= item.company %></p>
+        <p class="item-info">Price: $<%= item.price %></p>
+        <p class="item-info">Quantity: <%= item.quantity %></p>
+    </div>
+</a>

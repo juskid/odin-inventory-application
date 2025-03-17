@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Item</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/images/walmart-logo.png" type="image/png" />
+</head>
+<body>
+    <% include('../navbar') %>
+    <div class="form-body">
+        <div class="form-container">
+            <form method="POST" action="/items/create" class="item-form">
+                <h2 class="form-title">New Item</h2>
+                <%- include("../partials/errors.ejs") %>
+                <label for="name" class="form-label">Name: </label><br />
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    maxlength="60"
+                    required
+                    class="form-input"
+                /><br />
+
+                <label for="types" class="form-label">Types: </label><br />
+                <select id="types" name="types" multiple required class="form-input">
+                    <% if (types) { %>
+                        <% types.forEach(type => { %>
+                            <option value="<%= type.type %>"><%= type.type %></option>
+                        <% }); %>
+                    <% } %>
+                </select>
+
+                <label for="company" class="form-label">Company: </label><br />
+                <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    maxlength="20"
+                    required
+                    class="form-input"
+                /><br />
+
+                <label for="quantity" class="form-label">Quantity: </label><br />
+                <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    min="0"
+                    required
+                    class="form-input"
+                /><br />
+
+                <label for="price" class="form-label">Price: </label><br />
+                <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    step="any"
+                    min="0"
+                    required
+                    class="form-input"
+                /><br />
+
+                <label for="image_url" class="form-label">Image URL: </label><br />
+                <input
+                    type="text"
+                    id="image_url"
+                    name="image_url"
+                    min="0"
+                    required
+                    class="form-input"
+                /><br />
+
+                <input type="submit" value="Submit" class="form-submit" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

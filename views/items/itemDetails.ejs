@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= itemDetails.name %></title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/images/candy-logo.png" type="image/png" />
+</head>
+<body>
+    <%- include('../navbar') %>
+    <div class="details-body">
+        <div class="details-container">
+            <h3 class="details-title"> <%= itemDetails.name%> </h3>
+            <img src="<%= itemDetails.image_url %>" class="details-image" />
+            <p class="details-label">Type(s):</p>
+            <ul class="details-types-container">
+                <% itemDetails.types.forEach(type => { %>
+                    <li class="details-type-item">
+                        <p><%= type %></p>
+                    </li>
+                <% }); %>
+            </ul>
+            <p class="details-info">
+                Company: <span class="details-value"><%= itemDetails.company%></span>
+            </p>
+            <p class="details-info">
+                Quantity:
+                <span class="details-value"><%= itemDetails.quantity%></span>
+            </p>
+            <p class="details-info">
+                Price: $<span class="details-value"><%= itemDetails.price%></span>
+            </p>
+            <div class="buttons-container">
+                <form action="/items/update/<%=itemDetails.id%>">
+                    <input type="submit" value="Update" class="button update-button" />
+                </form>
+                <form action="/items/delete/<%=itemDetails.id%>">
+                    <input type="submit" value="Delete" class="button delete-button" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
