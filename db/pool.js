@@ -7,7 +7,7 @@ const pool = new Pool({
 
 pool.connect((err) => {
     if (err) {
-        console.error("Failed to connect to PostgreSQL:", err);
+        console.error(process.env.PUBLIC_DATABASE_URL + "Failed to connect to PostgreSQL:", err);
     } else {
         console.log("Successfully connected to PostgreSQL");
     }
