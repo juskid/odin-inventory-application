@@ -60,7 +60,7 @@ VALUES
 //Baby & Toddlers, Fashion, Tech
 async function main() {
     try {
-        console.log("seeding...");
+        console.log(process.env.PUBLIC_DATABASE_URL+"seeding...");
 
         const client = new Client({
             connectionString: process.env.PUBLIC_DATABASE_URL,
